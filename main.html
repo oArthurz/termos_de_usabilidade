@@ -202,7 +202,594 @@
             width: 100%;
             border: none;
             border-bottom: 1px solid #aaa;
+            outline: none;<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termo de Responsabilidade - Equipamentos de TI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            color: #333333;
+        }
+
+        body {
+            background-color: #f4f4f9;
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .document-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 850px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 8px solid #f26522;
+            border-bottom: 8px solid #f26522;
+            position: relative;
+        }
+
+        /* Cabeçalho */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+
+        .titulo h1 {
+            font-size: 20px;
+            font-weight: 800;
+            color: #000;
+            line-height: 1.2;
+        }
+
+        .titulo h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .logos {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: bold;
+        }
+
+        .logos .brand-tellerina {
+            font-size: 16px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .logos .divider {
+            height: 20px;
+            width: 1px;
+            background-color: #ccc;
+        }
+
+        .logos .brand-vivara {
+            font-size: 18px;
+            letter-spacing: 2px;
+            font-family: serif;
+        }
+
+        .descricao {
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* Seções e Títulos */
+        .section-title {
+            background-color: #f26522;
+            color: white;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 13px;
+            text-align: center;
+            padding: 6px;
+            border-radius: 4px 4px 0 0;
+            margin-top: 15px;
+        }
+
+        section {
+            margin-bottom: 15px;
+        }
+
+        /* Formulário de Dados */
+        .form-container {
+            border: 1px solid #f26522;
+            border-top: none;
+            padding: 15px;
+            border-radius: 0 0 4px 4px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 12px;
+            align-items: flex-end;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .form-group.full {
+            flex: 100%;
+        }
+
+        .form-group label {
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .form-group input {
+            border: none;
+            border-bottom: 1px solid #333;
+            width: 100%;
             outline: none;
+            padding: 2px 5px;
+            font-size: 13px;
+            background: transparent;
+        }
+
+        /* Tabelas */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #f26522;
+            border-top: none;
+            font-size: 13px;
+        }
+
+        table th, table td {
+            border: 1px solid #ffd8c4;
+            padding: 6px 12px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #fff0e8;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 12px;
+            color: #444;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        table td input, table td select {
+            width: 100%;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 13px;
+        }
+
+        .table-equipamento td:first-child {
+            width: 30%;
+            font-weight: 600;
+            background-color: #fff0e8;
+        }
+
+        /* Observação Justificada */
+        .observacao-box {
+            border: 1px solid #f26522;
+            border-top: none;
+            padding: 15px;
+            border-radius: 0 0 4px 4px;
+        }
+
+        .observacao-box textarea {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #aaa;
+            outline: none;
+            resize: none;
+            line-height: 24px;
+            background: repeating-linear-gradient(
+                transparent,
+                transparent 23px,
+                #ccc 23px,
+                #ccc 24px
+            );
+            font-size: 13px;
+        }
+
+        /* Termos e Condições */
+        .termo-lista {
+            font-size: 11.5px;
+            line-height: 1.5;
+            margin-top: 15px;
+            text-align: justify;
+        }
+
+        .termo-lista h3 {
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .termo-lista ol {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .termo-lista li {
+            margin-bottom: 6px;
+        }
+
+        .termo-lista li span.item-letter {
+            color: #f26522;
+            font-weight: 700;
+            margin-right: 4px;
+        }
+
+        /* Assinaturas */
+        .assinaturas-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-top: 25px;
+        }
+
+        .assinatura-block {
+            flex: 1;
+            text-align: center;
+        }
+
+        .assinatura-title {
+            background-color: #f26522;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px;
+            text-transform: uppercase;
+            border-radius: 3px 3px 0 0;
+        }
+
+        .assinatura-box {
+            border: 1px solid #f26522;
+            border-top: none;
+            height: 60px;
+            border-radius: 0 0 3px 3px;
+        }
+
+        /* Botões de Ação */
+        .action-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .btn-primary {
+            background-color: #f26522;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+
+        /* ===========================
+           MEDIA QUERIES (RESPONSIVIDADE)
+        =========================== */
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .document-card {
+                padding: 20px;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .logos {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 12px;
+                align-items: stretch;
+            }
+
+            .form-group {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+
+            .form-group label {
+                font-size: 12px;
+            }
+
+            .table-equipamento td:first-child {
+                width: 40%;
+            }
+
+            .assinaturas-grid {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .titulo h1 {
+                font-size: 17px;
+            }
+
+            .titulo h2 {
+                font-size: 15px;
+            }
+
+            table th, table td {
+                padding: 6px 8px;
+                font-size: 12px;
+            }
+
+            .termo-lista {
+                font-size: 11px;
+            }
+        }
+
+        /* Oculta botões ao imprimir */
+        @media print {
+            body {
+                padding: 0;
+                background-color: white;
+            }
+            .document-card {
+                box-shadow: none;
+                max-width: 100%;
+                padding: 0;
+            }
+            .action-buttons {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="document-card">
+
+    <header>
+        <div class="titulo">
+            <h1>TERMO DE RESPONSABILIDADE:</h1>
+            <h2>EQUIPAMENTOS DE TI</h2>
+        </div>
+        <div class="logos">
+            <div class="brand-tellerina">
+                <span style="color: #f26522; font-weight: bold;">[ ]</span> TELLERINA
+            </div>
+            <div class="divider"></div>
+            <div class="brand-vivara">VIVARA</div>
+        </div>
+    </header>
+
+    <p class="descricao">
+        Declaro ter recebido da empresa <strong>TELLERINA COMÉRCIO DE PRESENTES E ARTIGOS PARA DECORAÇÃO S/A</strong>, CNPJ: 84.453.844/0342-44 a título de empréstimo, o equipamento cujas características estão abaixo, para o meu uso exclusivo, responsabilizando-me pelo seu uso e sua guarda.
+    </p>
+
+    <!-- Dados do Colaborador -->
+    <section>
+        <div class="section-title">Dados do Colaborador</div>
+        <div class="form-container">
+            <div class="form-row">
+                <div class="form-group" style="flex: 2;">
+                    <label>Nome do colaborador:</label>
+                    <input type="text">
+                </div>
+                <div class="form-group" style="flex: 1;">
+                    <label>Matrícula - RE:</label>
+                    <input type="text">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group" style="flex: 1;">
+                    <label>Cargo:</label>
+                    <input type="text">
+                </div>
+                <div class="form-group" style="flex: 1;">
+                    <label>Departamento:</label>
+                    <input type="text">
+                </div>
+            </div>
+            <div class="form-row" style="margin-bottom: 0;">
+                <div class="form-group full">
+                    <label>Email:</label>
+                    <input type="email">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dados do Equipamento -->
+    <section>
+        <div class="section-title">Dados do Equipamento</div>
+        <div class="table-responsive">
+            <table class="table-equipamento">
+                <tr>
+                    <td>Equipamento - Tipo</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Marca</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Modelo</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>S/N - Nº de série</td>
+                    <td><input type="text"></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- Status do Equipamento -->
+    <section>
+        <div class="section-title">Status do Equipamento</div>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 40%;">ITEM</th>
+                        <th style="width: 60%;">STATUS/OBSERVAÇÃO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Periféricos Concedidos</td>
+                        <td><input type="text" value="N/A"></td>
+                    </tr>
+                    <tr>
+                        <td>Estado do Teclado</td>
+                        <td>
+                            <select>
+                                <option selected>Em Condições</option>
+                                <option>Com Avaria</option>
+                                <option>N/A</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Observação Teclado</td>
+                        <td><input type="text" value="N/A"></td>
+                    </tr>
+                    <tr>
+                        <td>Estado do Touchpad</td>
+                        <td>
+                            <select>
+                                <option selected>Em Condições</option>
+                                <option>Com Avaria</option>
+                                <option>N/A</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Numero do Chamado BPM</td>
+                        <td><input type="text" value="N/A"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Observação Justificada -->
+    <section>
+        <div class="section-title">Observação Justificada</div>
+        <div class="observacao-box">
+            <textarea rows="2"></textarea>
+        </div>
+    </section>
+
+    <!-- Termos e Condições -->
+    <section class="termo-lista">
+        <h3>Declaro, ainda que estar ciente de que:</h3>
+        <ol>
+            <li>
+                <span class="item-letter">(a)</span> o equipamento deverá ser usado exclusivamente para o cumprimento de minhas atividades profissionais;
+            </li>
+            <li>
+                <span class="item-letter">(b)</span> deverei utilizar o equipamento com prudência e cautela, zelando por sua conservação e manutenção, obrigando-me a devolvê-lo sempre que solicitado pela TELLERINA COMÉRCIO DE PRESENTES E ARTIGOS PARA DECORAÇÃO S/A, em perfeito estado de funcionamento e conservação, salvo os desgastes do uso normal;
+            </li>
+            <li>
+                <span class="item-letter">(c)</span> Em caso de danos decorrentes de mau uso causados ao equipamento, deverei comunicar imediatamente ao time da TI e a área em que atuo será responsável por arcar com os custos de reposição de um novo equipamento
+            </li>
+            <li>
+                <span class="item-letter">(d)</span> É de sua responsabilidade realizar a higienização utilizando álcool isopropílico. Não usar álcool em gel ou qualquer outro tipo de abrasivo que danifique o equipamento.
+            </li>
+            <li>
+                <span class="item-letter">(e)</span> Em caso de furto ou roubo do equipamento, deverei providenciar o BO com as informações do modelo e número de série do equipamento e enviar para o time da TI. Caso contrário, estou ciente que será tratado o caso como perda e a área em que atuo será responsável por arcar com os custos de reposição de um novo equipamento
+            </li>
+            <li>
+                <span class="item-letter">(f)</span> No caso de eventual viagem ao exterior, OBRIGO-ME a registrar o equipamento, como bagagem junto à Polícia Federal, ficando ciente de que, na hipótese de o equipamento ser apreendido, serei responsável pelas despesas de multas impostas pelo fisco
+            </li>
+            <li>
+                <span class="item-letter">(g)</span> Em caso de desligamento, deverei devolver o equipamento nas mesmas condições em que me foi entregue, exceto pelo desgaste normal de uso para TELLERINA COMÉRCIO DE PRESENTES E ARTIGOS PARA DECORAÇÃO S/A,.
+            </li>
+        </ol>
+    </section>
+
+    <!-- Assinaturas -->
+    <section class="assinaturas-grid">
+        <div class="assinatura-block">
+            <div class="assinatura-title">Assinatura Colaborador</div>
+            <div class="assinatura-box"></div>
+        </div>
+        <div class="assinatura-block">
+            <div class="assinatura-title">Assinatura Analista TI</div>
+            <div class="assinatura-box"></div>
+        </div>
+    </section>
+
+    <!-- Botões para ação do formulário -->
+    <div class="action-buttons">
+        <button type="button" class="btn btn-secondary" onclick="window.print()">Imprimir / Salvar PDF</button>
+        <button type="submit" class="btn btn-primary">Salvar Dados</button>
+    </div>
+
+</div>
+
+</body>
+</html>
             resize: none;
             line-height: 24px;
             background: repeating-linear-gradient(&#10;               transparent,&#10;                transparent 23px,&#10;                #ccc 23px,&#10;                #ccc 24px&#10;            );
